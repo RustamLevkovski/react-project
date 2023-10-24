@@ -1,7 +1,3 @@
-// конфигурация webpack сборки
-
-// до применения в tsconfig "allowSyntheticDefaultImports": true, import * as HtmlWebpackPlugin from 'html-webpack-plugin';
-
 import type webpack from 'webpack' // to access built-in plugins
 import path from 'path'
 

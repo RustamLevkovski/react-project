@@ -1,38 +1,52 @@
 {
-    "compilerOptions": {
-      // путь до папки куда происходит сборка
-      "outDir": "./dist/",
-      // указывает места, где не указан тип данных. необходимо явно указывать any 
-      "noImplicitAny": true,
-      // модульная система
-      "module": "ESNext",
-      // версия в которую код будет компилироваться. указывается 5ая чтобы большинство браузеров поддерживало код.
-      "target": "es5",
-      // react-jsx для того чтобы не импортировать реакт в каждый tsx компонент
-      "jsx": "react-jsx",
-      // позволяет компилятору обрабатывать не только ts но и js файлы
-      "allowJs": true,
-      // определяет какие импорты будут. 2 свойства node и classic
-      "moduleResolution": "node", 
-      // esModuleInterop позволяет работать с пакетами, которые испольщуют common js как с обычным пакетом с помощью import require() module.export
-      "esModuleInterop": true,
-      // Если какая-то либа не имеет default import, лоадеры типа ts-loader автоматом создают их
-      // вместо import * as React from 'react'; => import React from 'React'; 
-      // * означает что мы импортируем явно все из пакета
-      "allowSyntheticDefaultImports": true,
-      //для абсолютного импорта
-      "baseUrl": ".",
-      //все экспорты/импорты абсолютные будут идти из папки src
-      "paths": {
-        "*": ["./src/*"]
-      }
+  "compilerOptions": {
+    "outDir": "./dist/",
+    // Подсвечивает все места где не указан тип
+    // Однако это не означает, что теперь вовсе нельзя использовать any.
+    // Это означает лишь, что в подобных ситуация разработчик должен явно писать any,
+    "noImplicitAny": true,
+    "module": "ESNext",
+    // В какую спецификацию компилируем: для поддержки большинства браузеров
+    "target": "es5",
+    "jsx": "react-jsx",
+    // Компилятор будет обрабатывать не только TS файлы, но и JS файлы
+    "allowJs": true,
+    "strict": true,
+    "moduleResolution": "node",
+    // Для абсолютного импорта
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./src/*"]
     },
-    "ts-node": {
-      "compilerOptions": {
-        "module": "CommonJS"
-      }
+    // esModuleInterop позволяет работать с пакетами, которые используют
+    // common js как с обычными пакета с помощью import (require() module.export) = common js
+    // import Moment from 'moment';
+    // без флага esModuleInterop результат undefined
+    // console.log(Moment);
+    // c флагом результат [object Object]
+    // console.log(Moment);
+    "esModuleInterop": true,
+    // Если какая-либо библиотека не имеет default import,
+    // лоадеры вроде ts-loader или babel-loader автоматически создают их
+    // вместо такого импорта
+    // import * as React from 'react';
+    // можно писать такой
+    // import React from 'react';
+    "allowSyntheticDefaultImports": true
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
     }
-  }
+  },
+  "include": [
+    "./config/jest/setupTests.ts",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "webpack.config.ts",
+    "./config/jest/jest.config.ts"
+  ],
+}
 
 
   // Проблема изоляции стилей. Есть 2 компонента в которых есть два одноименных класса. Один из подходов для изоляции стилей - БЭМ. 

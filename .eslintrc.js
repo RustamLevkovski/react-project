@@ -17,7 +17,8 @@ module.exports = {
                 ".eslintrc.{js,cjs}"
             ],
             "parserOptions": {
-                "sourceType": "script"
+                "sourceType": "script",
+                project: './tsconfig-webpack.json',
             }
         }
     ],
@@ -50,9 +51,22 @@ module.exports = {
         "@typescript-eslint/no-floating-promises": "warn",
         "@typescript-eslint/explicit-function-return-type": "warn",
         "@typescript-eslint/no-misused-promises": "warn",
-        'max-len': ['error', { ignoreComments: true }]
+        'max-len': ['error', { ignoreComments: true, code: 100 }]
     },
     globals: {
         '__IS_DEV__': true
-    }
+    },
+    overrides: [
+        {
+            files: ['**/src/**/*.test.{ts,tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off',
+            },
+        },
+    ],
+    ignorePatterns: [
+        "webpack.config.ts",
+        "config/jest/jest.config.ts",
+        "config/jest/jestEmptyComponent.tsx"
+    ]
 }

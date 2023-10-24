@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './SideBar.module.scss'
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher'
@@ -19,8 +18,10 @@ export const SideBar = ({ className }: SideBarProps) => {
   }
   return (
       <div
+          data-testid="sidebar"
           className={classNames(cls.SideBar, { [cls.collapsed]: isCollapsed }, [className])}>
           <Button
+              data-testid="sidebar-toggle"
               theme={ThemeButton.CLEAR}
               onClick= { onToogle }>
               {isCollapsed
