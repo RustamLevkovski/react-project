@@ -21,7 +21,11 @@
       // * означает что мы импортируем явно все из пакета
       "allowSyntheticDefaultImports": true,
       //для абсолютного импорта
-      "baseUrl": "."
+      "baseUrl": ".",
+      //все экспорты/импорты абсолютные будут идти из папки src
+      "paths": {
+        "*": ["./src/*"]
+      }
     },
     "ts-node": {
       "compilerOptions": {
