@@ -6,6 +6,7 @@ import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher'
 import SidebarShow from 'shared/assets/icons/sidebar-show.svg'
 import SidebarHide from 'shared/assets/icons/sidebar-hide.svg'
 import { Button, ThemeButton } from 'shared/ui/Button/Button'
+import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher'
 
 interface SideBarProps {
   className?: string
@@ -28,6 +29,7 @@ export const SideBar = ({ className }: SideBarProps) => {
           </Button>
           <div className={cls.switchers} >
               <ThemeSwitcher/>
+              <LangSwitcher className={cls.lang} />
           </div>
       </div>
   )

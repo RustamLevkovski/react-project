@@ -1,7 +1,8 @@
 module.exports = {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "jest": true
     },
     "extends": [
         "standard-with-typescript",
@@ -48,7 +49,8 @@ module.exports = {
         "@typescript-eslint/strict-boolean-expressions": "warn",
         "@typescript-eslint/no-floating-promises": "warn",
         "@typescript-eslint/explicit-function-return-type": "warn",
-        "@typescript-eslint/no-misused-promises": "warn"
+        "@typescript-eslint/no-misused-promises": "warn",
+        'max-len': ['error', { ignoreComments: true }]
     },
     globals: {
         '__IS_DEV__': true

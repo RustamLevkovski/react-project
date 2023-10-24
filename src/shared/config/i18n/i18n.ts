@@ -20,7 +20,7 @@ i18n
   // init i18next
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
-    fallbackLng: 'ru',
+    fallbackLng: 'en',
     debug: !!__IS_DEV__,
     // чтобы использовать глоабльную переменную мы декларируем ее в global.d.ts и передаем ее в вебПак через плагины, конкретно webpack.DefinePlugin
     interpolation: {
